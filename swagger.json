@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Счетчик символов",
+      "description": "Считает количество каждого символа в строке"
+    }
+  ],
+  "paths": {
+    "/count": {
+      "get": {
+        "tags": [
+          "Счетчик символов"
+        ],
+        "summary": "Endpoint для подсчета симолов",
+        "operationId": "count",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Строка для обработки",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Строка обработана",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "Map",
+                  "default": "{'a':2,'b':1}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Строка пуста"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
